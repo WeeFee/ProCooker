@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"com.gitlab.weefee.ProCooker","l":"Discord"},{"p":"com.gitlab.weefee.ProCooker","l":"Main"},{"p":"com.gitlab.weefee.ProCooker","l":"OSDetection"}];updateSearchResults();
