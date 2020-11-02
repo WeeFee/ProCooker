@@ -24,3 +24,5 @@ hs_err_pid*
 
 # Discord Libs
 discord_game_sdk.*
+
+target/classes/

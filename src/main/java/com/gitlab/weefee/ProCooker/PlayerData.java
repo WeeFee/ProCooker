@@ -45,9 +45,6 @@ public class PlayerData {
      * @return
      */
     public static String getSaveData(int position) {
-        if (position == 0) {
-            return "NULL";
-        }
         return saveData[position];
     }
 

@@ -13,8 +13,32 @@ public class Networking {
             .connectTimeout(Duration.ofSeconds(30))
             .build();
 
-    public static void uploadCloudData() {
+    public static boolean uploadCloudData(String playerID) {
+        StringBuilder postBody = new StringBuilder();
 
+        for (int i = 0; i < 10; i++) {
+            postBody.append(PlayerData.getSaveData(i));
+            postBody.append(",");
+        }
+
+        HttpRequest dataUpload = HttpRequest.newBuilder()
+                .POST(HttpRequest.BodyPublishers.ofString(postBody.toString()))
+                .uri(URI.create("https://services.procooker.gq/cloudData/" + playerID))
+                .setHeader("User-Agent", "ProCooker")
+                .build();
+
+        try {
+            HttpResponse<String> response = httpClient.send(dataUpload, HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() != 200) {
+                return false;
+            }
+
+            return true;
+        } catch (InterruptedException | IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public static boolean downloadCloudData(String playerID) {
@@ -23,6 +47,7 @@ public class Networking {
                 .uri(URI.create("https://services.procooker.gq/cloudData/" + playerID))
                 .setHeader("User-Agent", "ProCooker")
                 .build();
+
         try {
             HttpResponse<String> response = httpClient.send(dataRequest, HttpResponse.BodyHandlers.ofString());
 

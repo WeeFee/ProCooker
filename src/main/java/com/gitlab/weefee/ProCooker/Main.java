@@ -49,7 +49,6 @@ public class Main {
             }
         }
 
-        // FIXME: Remove Discord activity test once main menu is created
         Discord.updateActivity("Hanging Out",
                 "In the Main Menu",
                 "null",
