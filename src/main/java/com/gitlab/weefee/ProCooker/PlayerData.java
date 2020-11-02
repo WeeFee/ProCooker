@@ -1,7 +1,6 @@
 package com.gitlab.weefee.ProCooker;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,12 +12,14 @@ import java.util.Arrays;
 public class PlayerData {
     private static final String idCharacters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+    private static final String fileSeparator = System.getProperty("file.separator");
+
     private static final Path saveLocation = Path.of(System.getProperty("user.home") +
-            System.getProperty("file.separator") +
+            fileSeparator +
             ".local" +
-            System.getProperty("file.separator") +
+            fileSeparator +
             "share" +
-            System.getProperty("file.separator") +
+            fileSeparator +
             "ProCooker");
 
     /**
@@ -27,11 +28,36 @@ public class PlayerData {
     private static String[] saveData = new String[10];
 
     /**
-     * Verifies the save data and ensure that the data is present.
+     *
+     * @param position
+     * @param value
+     */
+    public static void editSaveData(int position, String value) {
+        if (position == 0) {
+            return;
+        }
+        saveData[position] = value;
+    }
+
+    /**
+     *
+     * @param position
+     * @return
+     */
+    public static String getSaveData(int position) {
+        if (position == 0) {
+            return "NULL";
+        }
+        return saveData[position];
+    }
+
+    /**
+     * Verifies that the data is present.
      * @return Result of the verification
      */
     public static boolean verifyData() {
-        return false;
+        File saveFile = new File(saveLocation + fileSeparator + "save");
+        return saveFile.exists();
     }
 
     /**
@@ -60,9 +86,6 @@ public class PlayerData {
         // DEBUG: Print out player ID and username
         System.out.println(saveData[1] + " | " + saveData[2]);
 
-        // Create the hash needed
-        saveData[0] = hashData(saveData);
-
         // Create the save folder
         try {
             Files.createDirectories(saveLocation);
@@ -81,6 +104,20 @@ public class PlayerData {
      * @return Result of the save
      */
     public static boolean savePlayerData() {
+        try {
+            BufferedWriter savefileWriter = new BufferedWriter(new FileWriter(saveLocation + fileSeparator + "save"));
+            // Create the hash needed
+            saveData[0] = hashData(saveData);
+            for (int i = 0; i < 10; i++) {
+                savefileWriter.write(saveData[i]);
+                savefileWriter.newLine();
+            }
+            savefileWriter.flush();
+            savefileWriter.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 
@@ -89,9 +126,26 @@ public class PlayerData {
      * @return Result of the load
      */
     public static boolean loadPlayerData() {
+        try {
+            BufferedReader savefileReader = new BufferedReader(new FileReader(saveLocation + fileSeparator + "save"));
+            String currentLine;
+            for (int i = 0; i < 10; i++) {
+                currentLine = savefileReader.readLine();
+                saveData[i] = currentLine;
+            }
+            savefileReader.close();
+            return saveData[0].equals(hashData(saveData));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 
+    /**
+     *
+     * @param inputArray
+     * @return
+     */
     private static String hashData(String[] inputArray) {
         if (inputArray.length == 10) {
             StringBuilder hashingString = new StringBuilder();
