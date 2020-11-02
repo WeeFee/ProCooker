@@ -31,7 +31,7 @@ public class Networking {
 
         HttpRequest dataUpload = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(postBody.toString()))
-                .uri(URI.create("https://services.procooker.gq/cloudData/" + playerID))
+                .uri(URI.create("https://services.procooker.gq/cloudData/" + playerID + "/"))
                 .setHeader("User-Agent", "ProCooker")
                 .build();
 
@@ -53,7 +53,7 @@ public class Networking {
     public static boolean downloadCloudData(String playerID) {
         HttpRequest dataRequest = HttpRequest.newBuilder()
                 .GET()
-                .uri(URI.create("https://services.procooker.gq/cloudData/" + playerID))
+                .uri(URI.create("https://services.procooker.gq/cloudData/" + playerID + "/"))
                 .setHeader("User-Agent", "ProCooker")
                 .build();
 
@@ -90,7 +90,7 @@ public class Networking {
     public static String[] getLeaderboard(String leaderboardEntry) {
         HttpRequest dataRequest = HttpRequest.newBuilder()
                 .GET()
-                .uri(URI.create("https://services.procooker.gq/leaderboard/" + leaderboardEntry))
+                .uri(URI.create("https://services.procooker.gq/leaderboard/" + leaderboardEntry + "/"))
                 .setHeader("User-Agent", "ProCooker")
                 .build();
 
@@ -123,7 +123,7 @@ public class Networking {
 
         HttpRequest dataUpload = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(postBody))
-                .uri(URI.create("https://services.procooker.gq/leaderboard/" + leaderboardEntry))
+                .uri(URI.create("https://services.procooker.gq/leaderboard/" + leaderboardEntry + "/"))
                 .setHeader("User-Agent", "ProCooker")
                 .build();
 
@@ -144,7 +144,7 @@ public class Networking {
     public static String getWeeklyInfinite() {
         HttpRequest dataRequest = HttpRequest.newBuilder()
                 .GET()
-                .uri(URI.create("https://services.procooker.gq/weekyly"))
+                .uri(URI.create("https://services.procooker.gq/weekly/"))
                 .setHeader("User-Agent", "ProCooker")
                 .build();
 
@@ -155,13 +155,34 @@ public class Networking {
                 return null;
             }
 
-            // DEBUG: Print out received data
-            System.out.println(response.body());
-
             return response.body();
         } catch (InterruptedException | IOException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static boolean checkStatus() {
+        HttpRequest dataRequest = HttpRequest.newBuilder()
+                .GET()
+                .uri(URI.create("https://services.procooker.gq/"))
+                .setHeader("User-Agent", "ProCooker")
+                .build();
+
+        try {
+            HttpResponse<String> response = httpClient.send(dataRequest, HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() != 200) {
+                return false;
+            }
+
+            // Print out received server version
+            System.out.println("Server Version: " + response.body());
+
+            return true;
+        } catch (InterruptedException | IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

@@ -51,12 +51,23 @@ public class Main {
             }
         }
 
+        // Print out game version
+        System.out.println("Game Version: " + version);
+
+        Boolean networked = true;
+
+        // Check if the ProCooker services are available
+        if (!Networking.checkStatus()) {
+            System.out.println("ProCooker services are not available!");
+            networked = false;
+        }
+
         Discord.updateActivity("Hanging Out",
                 "In the Main Menu",
                 "logo",
                 "ProCooker " + version,
-                "null",
-                "null",
+                "net" + networked,
+                "Connected to ProCooker Services as " + PlayerData.getSaveData(2) + "!",
                 Instant.now());
 
         // Set up audio object for music and sound effects
@@ -69,6 +80,19 @@ public class Main {
 
         // Get the clicking sound ready
         Clip clickSoundClip = mainMenuSounds.getSFX("click");
+
+        // DEBUG: Test save data edit
+        PlayerData.editSaveData(4, "peepee");
+        PlayerData.savePlayerData();
+
+        String currentWeekly = null;
+
+        if (networked) {
+            // Get the current weekly challenge
+            currentWeekly = Networking.getWeeklyInfinite();
+
+            System.out.println("Current weekly challenge: " + currentWeekly);
+        }
 
         // Menu loop
         while (true) {
