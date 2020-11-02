@@ -12,6 +12,8 @@ import java.time.Instant;
  * Main class
  */
 public class Main {
+    public static final String version = "0.1-SNAPSHOT";
+
     /**
      * Main runnable class
      * @param args Starting arguments
@@ -51,8 +53,8 @@ public class Main {
 
         Discord.updateActivity("Hanging Out",
                 "In the Main Menu",
-                "null",
-                "null",
+                "logo",
+                "ProCooker " + version,
                 "null",
                 "null",
                 Instant.now());
