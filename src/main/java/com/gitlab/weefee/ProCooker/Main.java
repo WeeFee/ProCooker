@@ -2,7 +2,10 @@ package com.gitlab.weefee.ProCooker;
 
 import de.jcm.discordgamesdk.Core;
 
+import javax.sound.sampled.*;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.time.Instant;
 
 /**
@@ -19,30 +22,27 @@ public class Main {
         switch (OSDetection.detectOS()) {
             case 0 -> {
                 System.out.println("Discord GameSDK not supported on this system! Sorry! (Skipping initialization)");
-                System.out.println("Running on unknown system architecture or operating system.");
+                System.out.println("Running on unknown system architecture or operating system. Be warned!");
             }
             case 1 -> {
                 Core.init(new File("lib/discord_game_sdk.dll"));
-                System.out.println("Running on Windows");
             }
             case 2 -> {
                 Core.init(new File("lib/discord_game_sdk.dylib"));
-                System.out.println("Running on macOS");
             }
             case 3 -> {
                 Core.init(new File("lib/discord_game_sdk.so"));
-                System.out.println("Running on Linux");
             }
         }
         // Connect to Discord client
         Discord.connectToDiscord();
 
-        // Check if player data is present and sane, load if passed
+        // Check if player data is present, load if passed
         if (!PlayerData.verifyData()) {
-            System.out.println("Data missing or invalid, creating new profile");
+            System.out.println("Data missing, creating new profile");
             PlayerData.createNewPlayerData();
         } else {
-            System.out.println("Data found and valid, loading profile");
+            System.out.println("Data found, loading profile");
             if (!PlayerData.loadPlayerData()) {
                 System.err.println("Cannot load data!!! Panic!!!");
                 System.exit(1);
@@ -58,7 +58,18 @@ public class Main {
                 "null",
                 Instant.now());
 
-        // Main game loop
+        // Set up audio object for music and sound effects
+        Audio mainMenuSounds = new Audio();
+
+        // Play background music
+        Clip mainMenuClip = mainMenuSounds.getBGM("menu");
+        mainMenuClip.loop(Clip.LOOP_CONTINUOUSLY);
+        mainMenuClip.start();
+
+        // Get the clicking sound ready
+        Clip clickSoundClip = mainMenuSounds.getSFX("click");
+
+        // Menu loop
         while (true) {
             Discord.core.runCallbacks();
         }
