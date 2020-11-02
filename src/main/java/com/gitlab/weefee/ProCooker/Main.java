@@ -10,33 +10,28 @@ import java.time.Instant;
  */
 public class Main {
     /**
-     * Cached OS int
-     */
-    public static int OS;
-
-    /**
      * Main runnable class
-     * @param args Start up arguments
+     * @param args Starting arguments
      */
     public static void main(String[] args) {
         // Do any operating system specific methods here, check java doc for more information about getOS()
         // Caches the result in OS for future use.
-        switch (OSDetection.getOS()) {
+        switch (OSDetection.detectOS()) {
             case 0 -> {
                 System.out.println("Discord GameSDK not supported on this system! Sorry! (Skipping initialization)");
-                OS = 0;
+                System.out.println("Running on unknown system architecture or operating system.");
             }
             case 1 -> {
                 Core.init(new File("lib/discord_game_sdk.dll"));
-                OS = 1;
+                System.out.println("Running on Windows");
             }
             case 2 -> {
                 Core.init(new File("lib/discord_game_sdk.dylib"));
-                OS = 2;
+                System.out.println("Running on macOS");
             }
             case 3 -> {
                 Core.init(new File("lib/discord_game_sdk.so"));
-                OS = 3;
+                System.out.println("Running on Linux");
             }
         }
         // Connect to Discord client

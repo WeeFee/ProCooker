@@ -12,7 +12,6 @@ import java.time.Instant;
  * @version 2.5.6
  */
 public class Discord {
-
     /**
      * Core Discord GameSDK object.
      * Not thread safe! Do not use outside of the main thread!
