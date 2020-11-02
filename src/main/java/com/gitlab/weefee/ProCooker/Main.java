@@ -37,6 +37,18 @@ public class Main {
         // Connect to Discord client
         Discord.connectToDiscord();
 
+        // Check if player data is present and sane, load if passed
+        if (!PlayerData.verifyData()) {
+            System.out.println("Data missing or invalid, creating new profile");
+            PlayerData.createNewPlayerData();
+        } else {
+            System.out.println("Data found and valid, loading profile");
+            if (!PlayerData.loadPlayerData()) {
+                System.err.println("Cannot load data!!! Panic!!!");
+                System.exit(1);
+            }
+        }
+
         // FIXME: Remove Discord activity test once main menu is created
         Discord.updateActivity("Hanging Out",
                 "In the Main Menu",
