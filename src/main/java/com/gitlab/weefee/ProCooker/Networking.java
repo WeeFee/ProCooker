@@ -119,7 +119,7 @@ public class Networking {
      * @return
      */
     public static boolean uploadLeaderboard(String playerID, String leaderboardEntry, String score) {
-        String postBody = playerID + "," + score;
+        String postBody = playerID + "|" + score;
 
         HttpRequest dataUpload = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(postBody))
