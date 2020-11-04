@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+
 package com.gitlab.weefee.ProCooker;
 
 import java.io.*;
@@ -8,11 +10,23 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
+/**
+ *
+ */
 public class PlayerData {
+    /**
+     *
+     */
     private static final String idCharacters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+    /**
+     *
+     */
     private static final String fileSeparator = System.getProperty("file.separator");
 
+    /**
+     *
+     */
     private static final Path saveLocation = Path.of(System.getProperty("user.home") +
             fileSeparator +
             ".local" +

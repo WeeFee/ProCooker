@@ -1,6 +1,14 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+
 package com.gitlab.weefee.ProCooker;
 
+/**
+ *
+ */
 public class Recipes {
+    /**
+     *
+     */
     public final static String[][] dessert = {
             { "", "", "", "", "", "", "", "", "" },
             { "", "", "", "", "", "", "", "", "" },
@@ -8,6 +16,9 @@ public class Recipes {
             { "", "", "", "", "", "", "", "", "" }
     };
 
+    /**
+     *
+     */
     public final static String[][] mainCourse = {
             { "", "", "", "", "", "", "", "", "" },
             { "", "", "", "", "", "", "", "", "" },
@@ -15,6 +26,9 @@ public class Recipes {
             { "", "", "", "", "", "", "", "", "" }
     };
 
+    /**
+     *
+     */
     public final static String[][] appetizer = {
             { "", "", "", "", "", "", "", "", "" },
             { "", "", "", "", "", "", "", "", "" },

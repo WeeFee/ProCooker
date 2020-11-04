@@ -1,9 +1,19 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+
 package com.gitlab.weefee.ProCooker;
 
 import javax.sound.sampled.*;
 import java.io.IOException;
 
+/**
+ *
+ */
 public class Audio {
+    /**
+     *
+     * @param song
+     * @return
+     */
     public Clip getBGM(String song) {
         try {
             AudioInputStream musicStream = AudioSystem.getAudioInputStream(getClass().getResource("/music/" + song + ".wav"));
@@ -18,6 +28,11 @@ public class Audio {
         return null;
     }
 
+    /**
+     *
+     * @param sfx
+     * @return
+     */
     public Clip getSFX(String sfx) {
         try {
             AudioInputStream sfxStream = AudioSystem.getAudioInputStream(getClass().getResource("/sfx/" + sfx + ".wav"));

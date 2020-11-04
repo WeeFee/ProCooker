@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+
 package com.gitlab.weefee.ProCooker;
 
 import de.jcm.discordgamesdk.Core;
@@ -10,6 +12,9 @@ import java.time.Instant;
  * Main class
  */
 public class Main {
+    /**
+     *
+     */
     public static final String version = "0.1-SNAPSHOT";
 
     /**

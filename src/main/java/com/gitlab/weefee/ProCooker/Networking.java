@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+
 package com.gitlab.weefee.ProCooker;
 
 import java.io.IOException;
@@ -7,6 +9,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
+/**
+ *
+ */
 public class Networking {
     /**
      *
@@ -162,6 +167,10 @@ public class Networking {
         return null;
     }
 
+    /**
+     *
+     * @return
+     */
     public static boolean checkStatus() {
         HttpRequest dataRequest = HttpRequest.newBuilder()
                 .GET()
