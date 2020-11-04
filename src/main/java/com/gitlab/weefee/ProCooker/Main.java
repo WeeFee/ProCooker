@@ -5,8 +5,13 @@ package com.gitlab.weefee.ProCooker;
 import de.jcm.discordgamesdk.Core;
 
 import javax.sound.sampled.*;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.time.Instant;
+import java.util.Objects;
 
 /**
  * Main class
@@ -39,29 +44,71 @@ public class Main {
                 Core.init(new File("lib/discord_game_sdk.so"));
             }
         }
+
         // Connect to Discord client
         Discord.connectToDiscord();
+
+        // Set up the Swing window
+        JFrame.setDefaultLookAndFeelDecorated(false); // "true" causes issues on certain desktop environments with the CSD buttons suddenly becoming unpressable after resizing
+        JFrame mainWindow = new JFrame("ProCooker");
+        mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainWindow.setSize(1280, 720);
+
+        // Set up any custom fonts
+        Font mainFont = null;
+        try {
+            mainFont = Font.createFont(Font.TRUETYPE_FONT, Main.class.getResource("/fonts/ARCO.ttf").openStream());
+        } catch (FontFormatException | IOException e) {
+            e.printStackTrace();
+        }
+        GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        graphicsEnvironment.registerFont(mainFont);
+
+        // Set font sizes
+        Font loadingFont = Objects.requireNonNull(mainFont).deriveFont(45f);
+
+
+        // Set up the main menu panel
+        JPanel mainMenuPanel = new JPanel();
+        BorderLayout mainMenuLayout = new BorderLayout();
+        mainMenuPanel.setLayout(mainMenuLayout);
+
+        // Set loading text
+        JLabel loadingText = new JLabel("Loading Profile...");
+        loadingText.setFont(loadingFont);
+        loadingText.setHorizontalAlignment(SwingConstants.CENTER);
+        
+        mainMenuPanel.add(loadingText);
+
+        // Make the window visible
+        mainWindow.add(mainMenuPanel);
+        mainWindow.setVisible(true);
 
         // Check if player data is present, load if passed
         if (!PlayerData.verifyData()) {
             System.out.println("Data missing, creating new profile");
+            loadingText.setText("No Profile Found, Creating New Profile...");
             PlayerData.createNewPlayerData();
         } else {
             System.out.println("Data found, loading profile");
+            loadingText.setText("Profile Found, Loading Data...");
             if (!PlayerData.loadPlayerData()) {
                 System.err.println("Cannot load data!!! Panic!!!");
                 System.exit(1);
             }
         }
 
+        loadingText.setText("Connecting to ProCooker online services...");
+
         // Print out game version
         System.out.println("Game Version: " + version);
 
-        Boolean networked = true;
+        boolean networked = true;
 
         // Check if the ProCooker services are available
         if (!Networking.checkStatus()) {
             System.out.println("ProCooker services are not available!");
+            loadingText.setText("ProCooker services are not available, continuing in offline mode...");
             networked = false;
         }
 
@@ -88,7 +135,7 @@ public class Main {
         PlayerData.editSaveData(4, "peepee");
         PlayerData.savePlayerData();
 
-        String currentWeekly = null;
+        String currentWeekly;
 
         if (networked) {
             // Get the current weekly challenge
