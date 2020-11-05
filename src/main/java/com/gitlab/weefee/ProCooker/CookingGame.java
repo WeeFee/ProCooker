@@ -1,6 +1,6 @@
 package com.gitlab.weefee.ProCooker;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class CookingGame extends Object {
     private String gameState = "starting";
@@ -12,8 +12,8 @@ public class CookingGame extends Object {
     private int[] score = new int[2];
 
     private boolean[][] dishesJudged = new boolean[2][3];
-
-    private static String[][] usedIngredients = new String[2][5];
+    
+    private static ArrayList<String> usedIngredients = new ArrayList<String>(4);
 
     public void setGUI(CookingGUI currentGUI) {
         Main.mainWindow.getContentPane().removeAll();
@@ -34,12 +34,14 @@ public class CookingGame extends Object {
         }
     }
 
-    public String[] getIngredients() {
-        return usedIngredients[0];
+    public ArrayList<String> getIngredients() {
+        return usedIngredients;
     }
     
-    public static void setIngredients(int index, String ingredient) {
-    	usedIngredients[0][index] = ingredient;
+    public static void setIngredients(String ingredient) {
+    	if(usedIngredients.size() <= 4) {
+    		usedIngredients.add(ingredient);
+    	}
     }
 
     public int calculateScore() {
