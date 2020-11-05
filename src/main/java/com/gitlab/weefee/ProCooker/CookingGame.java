@@ -13,7 +13,7 @@ public class CookingGame extends Object {
 
     private boolean[][] dishesJudged = new boolean[2][3];
 
-    private String[][] usedIngredients = new String[2][5];
+    private static String[][] usedIngredients = new String[2][5];
 
     public void setGUI(CookingGUI currentGUI) {
         Main.mainWindow.getContentPane().removeAll();
@@ -38,7 +38,7 @@ public class CookingGame extends Object {
         return usedIngredients[0];
     }
     
-    public void setIngredients(int index, String ingredient) {
+    public static void setIngredients(int index, String ingredient) {
     	usedIngredients[0][index] = ingredient;
     }
 
