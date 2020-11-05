@@ -15,6 +15,9 @@ public class CookingGUI extends JPanel {
 	private JLabel appBG = new JLabel(new ImageIcon(new ImageIcon("src/res/appetizer.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
 	private JLabel entBG = new JLabel(new ImageIcon(new ImageIcon("src/res/entree.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
 	private JLabel desBG = new JLabel(new ImageIcon(new ImageIcon("src/res/dessert.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
+	
+	// JButton array of every ingredient
+	public static JButton[] ingredientList = new JButton[17];
 			
 	/*frame.setLayout(new BorderLayout());
 	frame.add(visual, BorderLayout.WEST);
@@ -30,8 +33,13 @@ public class CookingGUI extends JPanel {
 		this.game = game;
 		this.game.setGUI(this);
 		
-		// JButton array of every ingredient
-		JButton[] ingredientList = new JButton[17]; 
+		//Image section
+		JPanel visual = new JPanel();
+		visual.setLayout(new BorderLayout());
+		visual.add(appBG, BorderLayout.CENTER);
+		visual.setBorder(BorderFactory.createTitledBorder("The cook!"));
+		
+		//adding to JButton array of every ingredient
 		ingredientList[0] = new JButton("Cherries");
 		ingredientList[1] = new JButton("Tomatoes");
 		ingredientList[2] = new JButton("Oranges");
@@ -49,12 +57,6 @@ public class CookingGUI extends JPanel {
 		ingredientList[14] = new JButton("Bread");
 		ingredientList[15] = new JButton("Tofu");
 		ingredientList[16] = new JButton("Grapefruit"); //used as a base for testing
-		
-		//Image section
-		JPanel visual = new JPanel();
-		visual.setLayout(new BorderLayout());
-		visual.add(appBG, BorderLayout.CENTER);
-		visual.setBorder(BorderFactory.createTitledBorder("The cook!"));
 		
 		// makes JButtons to end cooking prematurely or reset the game instantly.
 		JButton cookNow = new JButton("END COOKING NOW (This Round)"); // button to end cooking earlier
