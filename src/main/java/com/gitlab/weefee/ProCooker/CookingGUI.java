@@ -115,7 +115,7 @@ public class CookingGUI extends JPanel {
 		JPanel frame = new JPanel();
 
 		frame.setLayout(new BorderLayout());
-		frame.add(visual, BorderLayout.WEST);
+		//frame.add(visual, BorderLayout.WEST);
 		frame.add(communication, BorderLayout.NORTH);
 		frame.add(ingredients, BorderLayout.EAST);
 		frame.add(entexit, BorderLayout.SOUTH);
@@ -124,8 +124,12 @@ public class CookingGUI extends JPanel {
 		JLabel pan = new JLabel(new ImageIcon(getClass().getResource("/kitchensprites/pan.png")));
 		JLabel app = new JLabel(new ImageIcon(getClass().getResource("/kitchensprites/pan.png")));
 		
-		frame.add(app);
-		app.add(pan);
+		JPanel foods = new JPanel();
+		foods.setLayout(new GridLayout(0, 0));
+		foods.add(app, 0, 0);
+		foods.add(pan, 0, 0);
+		
+		frame.add(foods, BorderLayout.WEST);
 
 		return frame;
 	}
