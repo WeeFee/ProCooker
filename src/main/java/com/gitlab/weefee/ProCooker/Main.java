@@ -27,6 +27,16 @@ public class Main {
     public static JFrame mainWindow = new JFrame("ProCooker");
 
     /**
+     * Current round counter
+     */
+    public static int currentRound = 1;
+
+    /**
+     * Network feature flag switch
+     */
+    public static boolean networked = true;
+
+    /**
      * Main runnable class
      * @param args Starting arguments
      */
@@ -108,8 +118,6 @@ public class Main {
         // Print out game version
         System.out.println("Game Version: " + version);
 
-        boolean networked = true;
-
         // Check if the ProCooker services are available
         if (!Networking.checkStatus()) {
             System.out.println("ProCooker services are not available!");
@@ -117,13 +125,12 @@ public class Main {
             networked = false;
         }
 
-        Discord.updateActivity("Hanging Out",
-                "In the Main Menu",
+        Discord.updateActivity("Cooking up a storm",
+                "Competing",
                 "logo",
                 "ProCooker " + version,
                 "net" + networked,
-                "Connected to ProCooker Services as " + PlayerData.getSaveData(2) + "!",
-                Instant.now());
+                "Connected to ProCooker Services as " + PlayerData.getSaveData(2) + "!");
 
         // Set up audio object for music and sound effects
         Audio mainMenuSounds = new Audio();
@@ -149,10 +156,12 @@ public class Main {
             System.out.println("Current weekly challenge: " + currentWeekly);
         }
 
+
         CookingGame cookingGame = new CookingGame();
         CookingGUI cookingGUI = new CookingGUI();
         cookingGame.setGUI(cookingGUI.CookingGUI(cookingGame));
         Controller controller = new Controller(cookingGame, cookingGUI.ingredientList, cookingGUI.reset, cookingGUI.cookNow, clickSoundClip);
+
 
         // Menu loop
         while (true) {

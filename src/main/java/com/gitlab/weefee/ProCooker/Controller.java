@@ -3,6 +3,7 @@ package com.gitlab.weefee.ProCooker;
 import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.event.*;
+import java.time.Instant;
 
 /**
  * Controller management for ProCooker.
@@ -214,7 +215,11 @@ public class Controller implements ActionListener {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
+				Main.currentRound += 1;
+				if (Main.currentRound == 4) {
+					System.exit(0);
+				}
 			}
 		});
 		
