@@ -15,7 +15,7 @@ public class CookingGUI extends JPanel {
 	private JLabel appBG = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/kitchensprites/appetizer.png")).getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
 	private JLabel entBG = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/kitchensprites/main.png")).getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
 	private JLabel desBG = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/kitchensprites/dessert.png")).getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
-	private JLabel pan = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/kitchensprites/pan.png")).getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
+	private JLabel pan = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/kitchensprites/pan.png")).getImage().getScaledInstance(150, 150, Image.SCALE_DEFAULT)));
 	
 	// makes JButtons to end cooking prematurely or reset the game instantly.
 	public JButton cookNow = new JButton("END COOKING NOW (This Round)"); // button to end cooking earlier
@@ -122,11 +122,99 @@ public class CookingGUI extends JPanel {
 		frame.add(entexit, BorderLayout.SOUTH);
 		frame.setVisible(true);
 		
-
 		return frame;
 	}
 	
-	public void update() {
+	public JPanel update() {
+		JPanel frame = new JPanel();
+		
+		JLabel apples = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/apple.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel bread = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/bread.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel cherries = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/cherries.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel chicken = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/chicken.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel crab = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/crab.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel fish = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/fish.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel grapefruit = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/grapefruit.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel lemon = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/lemon.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel oranges = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/oranges.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel pasta = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/pasta.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel pickles = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/pickles.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel rice = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/rice.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel sourcream = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/sourcream.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel steak = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/steak.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel tofu = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/tofu.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel tomatoes = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/tomatoes.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel wine = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/wine.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		
+		if(CookingGame.usedIngredients.contains("Apples")) {
+			frame.add(apples);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Bread")) {
+			frame.add(bread);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Cherries")) {
+			frame.add(cherries);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Chicken")) {
+			frame.add(chicken);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Crab")) {
+			frame.add(crab);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Fish")) {
+			frame.add(fish);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Grapefruit")) {
+			frame.add(grapefruit);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Lemon")) {
+			frame.add(lemon);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Oranges")) {
+			frame.add(oranges);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Pasta")) {
+			frame.add(pasta);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Pickles")) {
+			frame.add(pickles);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Rice")) {
+			frame.add(rice);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Sour Cream")) {
+			frame.add(sourcream);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Steak")) {
+			frame.add(steak);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Tofu")) {
+			frame.add(tofu);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Tomatoes")) {
+			frame.add(tomatoes);
+		}
+		
+		if(CookingGame.usedIngredients.contains("Wine")) {
+			frame.add(wine);
+		}
+		
+		return frame;
 
 	}
 

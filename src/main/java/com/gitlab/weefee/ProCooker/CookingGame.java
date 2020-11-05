@@ -14,7 +14,7 @@ public class CookingGame extends Object {
 
     private boolean[][] dishesJudged = new boolean[2][3];
     
-    private static ArrayList<String> usedIngredients = new ArrayList<String>(4);
+    public static ArrayList<String> usedIngredients = new ArrayList<String>(4);
 
     public void setGUI(JPanel currentGUI) {
         Main.mainWindow.getContentPane().removeAll();
