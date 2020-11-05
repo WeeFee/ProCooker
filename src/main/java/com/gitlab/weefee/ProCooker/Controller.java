@@ -208,6 +208,23 @@ public class Controller implements ActionListener {
 				sfx.start();
 			}
 		});
+		
+		//Dish submission
+		buttons[17].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		buttons[18].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 
 
 

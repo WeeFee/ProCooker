@@ -22,11 +22,11 @@ public class CookingGUI extends JPanel {
 	private JLabel pan = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/kitchensprites/pan.png")).getImage().getScaledInstance(150, 150, Image.SCALE_DEFAULT)));
 	
 	// makes JButtons to end cooking prematurely or reset the game instantly.
-	public JButton cookNow = new JButton("END COOKING NOW (This Round)"); // button to end cooking earlier
+	public JButton cookNow = new JButton("Submit Dish"); // button to submit dish.
 	public JButton reset = new JButton("RESET GAME"); // button to immediately reset game
 	
 	// JButton array of every ingredient
-	public JButton[] ingredientList = new JButton[17];
+	public JButton[] ingredientList = new JButton[19];
 	
 	public JPanel CookingGUI(CookingGame game) {
 		//super();
@@ -148,7 +148,8 @@ public class CookingGUI extends JPanel {
 		ingredientList[14] = new JButton("Bread");
 		ingredientList[15] = new JButton("Tofu");
 		ingredientList[16] = new JButton("Grapefruit"); //used as a base for testing
-		
+		ingredientList[17] = new JButton("Submit Dish");
+		ingredientList[18] = new JButton("RESET GAME");
 		
 		//Text Box section
 		JPanel communication = new JPanel();
@@ -204,8 +205,8 @@ public class CookingGUI extends JPanel {
 		
 		//Buttons to enter and exit
 		JPanel entexit = new JPanel();
-		entexit.add(this.cookNow);
-		entexit.add(this.reset);
+		entexit.add(ingredientList[17]);
+		entexit.add(ingredientList[18]);
 		entexit.setBorder(BorderFactory.createTitledBorder("Some options which may prove helpful:"));
 
 		JPanel frame = new JPanel();
@@ -220,6 +221,7 @@ public class CookingGUI extends JPanel {
 		return frame;
 	}
 	
+	//bugtesting in relation to updating
 	public static JPanel updates() {
 		JPanel frame = new JPanel();
 		return frame;
