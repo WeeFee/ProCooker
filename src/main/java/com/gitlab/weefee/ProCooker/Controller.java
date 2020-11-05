@@ -21,7 +21,7 @@ public class Controller implements ActionListener {
 		
 		
 		//adds actionlisteners to the ingredient buttons
-		CookingGUI.ingredientList[0].addActionListener(new ActionListener() {
+		buttons[0].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -29,16 +29,10 @@ public class Controller implements ActionListener {
 			}
 		});
 		
-		CookingGUI.ingredientList[1].addActionListener(new ActionListener() {
-					
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				CookingGame.setIngredients("Tomatoes");
-			}
-		});
+		buttons[1].addActionListener(e -> CookingGame.setIngredients("Tomatoes"));
+
 		
-		
-		CookingGUI.ingredientList[2].addActionListener(new ActionListener() {
+		buttons[2].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -47,7 +41,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[3].addActionListener(new ActionListener() {
+		buttons[3].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -56,7 +50,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[4].addActionListener(new ActionListener() {
+		buttons[4].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -65,7 +59,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[5].addActionListener(new ActionListener() {
+		buttons[5].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -74,7 +68,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[6].addActionListener(new ActionListener() {
+		buttons[6].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -83,7 +77,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[7].addActionListener(new ActionListener() {
+		buttons[7].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -92,7 +86,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[8].addActionListener(new ActionListener() {
+		buttons[8].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -101,7 +95,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[9].addActionListener(new ActionListener() {
+		buttons[9].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -110,7 +104,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[10].addActionListener(new ActionListener() {
+		buttons[10].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -119,7 +113,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[11].addActionListener(new ActionListener() {
+		buttons[11].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -128,7 +122,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[12].addActionListener(new ActionListener() {
+		buttons[12].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -137,7 +131,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[13].addActionListener(new ActionListener() {
+		buttons[13].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -146,7 +140,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[14].addActionListener(new ActionListener() {
+		buttons[14].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -155,7 +149,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[15].addActionListener(new ActionListener() {
+		buttons[15].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -164,7 +158,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		CookingGUI.ingredientList[16].addActionListener(new ActionListener() {
+		buttons[16].addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {

@@ -15,9 +15,13 @@ public class CookingGUI extends JPanel {
 	private JLabel appBG = new JLabel(new ImageIcon(new ImageIcon("src/res/appetizer.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
 	private JLabel entBG = new JLabel(new ImageIcon(new ImageIcon("src/res/entree.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
 	private JLabel desBG = new JLabel(new ImageIcon(new ImageIcon("src/res/dessert.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
+
+	// makes JButtons to end cooking prematurely or reset the game instantly.
+	public JButton cookNow = new JButton("END COOKING NOW (This Round)"); // button to end cooking earlier
+	public JButton reset = new JButton("RESET GAME"); // button to immediately reset game
 	
 	// JButton array of every ingredient
-	public static JButton[] ingredientList = new JButton[17];
+	public JButton[] ingredientList = new JButton[17];
 	
 	public JPanel CookingGUI(CookingGame game) {
 		//super();
@@ -48,9 +52,7 @@ public class CookingGUI extends JPanel {
 		ingredientList[15] = new JButton("Tofu");
 		ingredientList[16] = new JButton("Grapefruit"); //used as a base for testing
 		
-		// makes JButtons to end cooking prematurely or reset the game instantly.
-		JButton cookNow = new JButton("END COOKING NOW (This Round)"); // button to end cooking earlier
-		JButton reset = new JButton("RESET GAME"); // button to immediately reset game
+
 		
 		//Text Box section
 		JPanel communication = new JPanel();
@@ -106,8 +108,8 @@ public class CookingGUI extends JPanel {
 		
 		//Buttons to enter and exit
 		JPanel entexit = new JPanel();
-		entexit.add(cookNow);
-		entexit.add(reset);
+		entexit.add(this.cookNow);
+		entexit.add(this.reset);
 		entexit.setBorder(BorderFactory.createTitledBorder("Some options which may prove helpful:"));
 
 		JPanel frame = new JPanel();
