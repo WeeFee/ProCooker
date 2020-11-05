@@ -15,7 +15,7 @@ public class CookingGame extends Object {
 
     private String[][] usedIngredients = new String[2][5];
 
-    public void setGUI(cookingGUI currentGUI) {
+    public void setGUI(CookingGUI currentGUI) {
         Main.mainWindow.getContentPane().removeAll();
         Main.mainWindow.add(currentGUI);
         Main.mainWindow.repaint();
