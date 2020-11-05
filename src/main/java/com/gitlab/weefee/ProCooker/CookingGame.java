@@ -37,6 +37,10 @@ public class CookingGame extends Object {
     public String[] getIngredients() {
         return usedIngredients[0];
     }
+    
+    public void setIngredients(int index, String ingredient) {
+    	usedIngredients[0][index] = ingredient;
+    }
 
     public int calculateScore() {
         return (totalTime - (totalTime - timeRemaining)) * playerCookingScore;
