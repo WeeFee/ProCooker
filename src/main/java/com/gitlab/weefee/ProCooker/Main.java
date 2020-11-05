@@ -55,7 +55,7 @@ public class Main {
         // Set up the Swing window
         JFrame.setDefaultLookAndFeelDecorated(false); // "true" causes issues on certain desktop environments with the CSD buttons suddenly becoming unpressable after resizing
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainWindow.setSize(1280, 719);
+        mainWindow.setSize(1280, 720);
 
         // Set up any custom fonts
         Font mainFont = null;
