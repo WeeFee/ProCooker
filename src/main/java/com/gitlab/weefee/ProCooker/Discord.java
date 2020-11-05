@@ -7,8 +7,8 @@ import de.jcm.discordgamesdk.activity.Activity;
 import java.time.Instant;
 
 /**
- * Internal Discord GameSDK library
- * @author Evie Viau
+ * Internal Discord GameSDK library, manages information about the game displayed on a third party social media app.
+ * @author Alcide Viau
  * @version 2.5.6
  */
 public class Discord {

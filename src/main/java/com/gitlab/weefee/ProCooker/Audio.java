@@ -6,11 +6,11 @@ import javax.sound.sampled.*;
 import java.io.IOException;
 
 /**
- * Sound library.
+ * Sound library for ProCooker.
  */
 public class Audio {
     /**
-     * Plays a song n the background.
+     * Plays a song in the background.
      * @param song The song to play.
      * @return A controllable clip.
      */

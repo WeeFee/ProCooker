@@ -2,6 +2,9 @@
 
 package com.gitlab.weefee.ProCooker;
 
+/**
+ * Database management for ProCooker, allows for storage of information and scores in the cloud.
+ */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;

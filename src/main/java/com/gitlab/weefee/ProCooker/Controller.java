@@ -4,6 +4,9 @@ import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.event.*;
 
+/**
+ * Controller management for ProCooker.
+ */
 public class Controller implements ActionListener {
 	
 	private CookingGame game;

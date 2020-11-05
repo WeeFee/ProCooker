@@ -3,6 +3,9 @@ package com.gitlab.weefee.ProCooker;
 import javax.swing.*;
 import java.util.*;
 
+/**
+ * Most game logic for ProCooker is handled here.
+ */
 public class CookingGame extends Object {
     private String gameState = "starting";
 

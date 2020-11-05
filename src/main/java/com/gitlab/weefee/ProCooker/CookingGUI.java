@@ -2,9 +2,11 @@ package com.gitlab.weefee.ProCooker;
 
 import java.awt.*;
 import java.util.Random;
-
 import javax.swing.*;
 
+/**
+ * Most visual/GUI related code is found here.
+ */
 public class CookingGUI extends JPanel {
 	
 	//Instance Variables

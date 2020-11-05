@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 /**
- *
+ * Stores, hashes and manages player data.
  */
 public class PlayerData {
     /**
