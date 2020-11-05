@@ -31,8 +31,7 @@ public class CookingGUI extends JPanel {
 		//Image section
 		JPanel visual = new JPanel();
 		visual.setLayout(new BorderLayout());
-		visual.add(appBG, BorderLayout.CENTER);
-		visual.add(pan, BorderLayout.SOUTH);
+		visual.add(updates(), BorderLayout.CENTER);
 		visual.setBorder(BorderFactory.createTitledBorder("Display of Ingredients Used"));
 		
 		//adding to JButton array of every ingredient
@@ -125,26 +124,26 @@ public class CookingGUI extends JPanel {
 		return frame;
 	}
 	
-	public JPanel update() {
+	public static JPanel updates() {
 		JPanel frame = new JPanel();
 		
-		JLabel apples = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/apple.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel bread = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/bread.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel cherries = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/cherries.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel chicken = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/chicken.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel crab = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/crab.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel fish = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/fish.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel grapefruit = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/grapefruit.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel lemon = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/lemon.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel oranges = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/oranges.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel pasta = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/pasta.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel pickles = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/pickles.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel rice = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/rice.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel sourcream = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/sourcream.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel steak = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/steak.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel tofu = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/tofu.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel tomatoes = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/tomatoes.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
-		JLabel wine = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/foodsprites/wine.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel apples = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/apple.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel bread = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/bread.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel cherries = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/cherries.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel chicken = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/chicken.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel crab = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/crab.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel fish = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/fish.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel grapefruit = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/grapefruit.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel lemon = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/lemon.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel oranges = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/oranges.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel pasta = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/pasta.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel pickles = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/pickles.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel rice = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/rice.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel sourcream = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/sourcream.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel steak = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/steak.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel tofu = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/tofu.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel tomatoes = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/tomatoes.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		JLabel wine = new JLabel(new ImageIcon(new ImageIcon(("/foodsprites/wine.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
 		
 		if(CookingGame.usedIngredients.contains("Apples")) {
 			frame.add(apples);

@@ -19,6 +19,7 @@ public class CookingGame extends Object {
     public void setGUI(JPanel currentGUI) {
         Main.mainWindow.getContentPane().removeAll();
         Main.mainWindow.add(currentGUI);
+        
         Main.mainWindow.setVisible(true);
     }
 
