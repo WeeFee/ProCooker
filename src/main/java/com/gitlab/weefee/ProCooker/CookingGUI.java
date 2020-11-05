@@ -12,7 +12,7 @@ public class CookingGUI extends JPanel {
 	private JTextField dialogue = new JTextField(75);
 	
 	// makes a JLabel. This JLabel contains an ImageIcon, but the ImageIcon also resizes the image in the same line which is why it's quite long
-	private JLabel appBG = new JLabel(new ImageIcon(new ImageIcon("src/kitchensprites/appetizer.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
+	private JLabel appBG = new JLabel(new ImageIcon(new ImageIcon("src/main/resources/kitchensprites/appetizer.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
 	private JLabel entBG = new JLabel(new ImageIcon(new ImageIcon("src/kitchensprites/entree.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
 	private JLabel desBG = new JLabel(new ImageIcon(new ImageIcon("src/kitchensprites/dessert.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
 
@@ -121,7 +121,11 @@ public class CookingGUI extends JPanel {
 		frame.add(entexit, BorderLayout.SOUTH);
 		frame.setVisible(true);
 		
-		frame.add(new JLabel(new ImageIcon(new ImageIcon("src/kitchensprites/pan.png").getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT)));
+		JLabel pan = new JLabel(new ImageIcon(getClass().getResource("/kitchensprites/pan.png")));
+		JLabel app = new JLabel(new ImageIcon(getClass().getResource("/kitchensprites/pan.png")));
+		
+		frame.add(app);
+		app.add(pan);
 
 		return frame;
 	}
