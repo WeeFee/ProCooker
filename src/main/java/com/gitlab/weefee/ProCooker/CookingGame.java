@@ -1,5 +1,6 @@
 package com.gitlab.weefee.ProCooker;
 
+import javax.swing.*;
 import java.util.*;
 
 public class CookingGame extends Object {
@@ -15,10 +16,10 @@ public class CookingGame extends Object {
     
     private static ArrayList<String> usedIngredients = new ArrayList<String>(4);
 
-    public void setGUI(CookingGUI currentGUI) {
+    public void setGUI(JPanel currentGUI) {
         Main.mainWindow.getContentPane().removeAll();
         Main.mainWindow.add(currentGUI);
-        Main.mainWindow.repaint();
+        Main.mainWindow.setSize(1280, 720);
     }
 
     public int getTimeRemaining() {

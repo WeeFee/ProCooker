@@ -55,7 +55,7 @@ public class Main {
         // Set up the Swing window
         JFrame.setDefaultLookAndFeelDecorated(false); // "true" causes issues on certain desktop environments with the CSD buttons suddenly becoming unpressable after resizing
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainWindow.setSize(1280, 720);
+        mainWindow.setSize(1280, 719);
 
         // Set up any custom fonts
         Font mainFont = null;
@@ -150,7 +150,7 @@ public class Main {
         }
 
         CookingGame cookingGame = new CookingGame();
-        cookingGame.setGUI(new CookingGUI(cookingGame));
+        cookingGame.setGUI(new CookingGUI().CookingGUI(cookingGame));
 
         // Menu loop
         while (true) {

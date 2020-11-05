@@ -18,20 +18,10 @@ public class CookingGUI extends JPanel {
 	
 	// JButton array of every ingredient
 	public static JButton[] ingredientList = new JButton[17];
-			
-	/*frame.setLayout(new BorderLayout());
-	frame.add(visual, BorderLayout.WEST);
-	frame.add(communication, BorderLayout.NORTH);
-	frame.add(ingredients, BorderLayout.EAST);
-	frame.add(entexit, BorderLayout.SOUTH);
-	frame.setSize(860, 540);
-	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	frame.setVisible(true);*/
 	
-	public CookingGUI(CookingGame game) {
-		super();
+	public JPanel CookingGUI(CookingGame game) {
+		//super();
 		this.game = game;
-		this.game.setGUI(this);
 		
 		//Image section
 		JPanel visual = new JPanel();
@@ -119,7 +109,17 @@ public class CookingGUI extends JPanel {
 		entexit.add(cookNow);
 		entexit.add(reset);
 		entexit.setBorder(BorderFactory.createTitledBorder("Some options which may prove helpful:"));
-		
+
+		JPanel frame = new JPanel();
+
+		frame.setLayout(new BorderLayout());
+		frame.add(visual, BorderLayout.WEST);
+		frame.add(communication, BorderLayout.NORTH);
+		frame.add(ingredients, BorderLayout.EAST);
+		frame.add(entexit, BorderLayout.SOUTH);
+		frame.setVisible(true);
+
+		return frame;
 	}
 	
 
