@@ -3,7 +3,7 @@
 package com.gitlab.weefee.ProCooker;
 
 /**
- * Internal OS and feature flag detection library
+ * Internal OS and feature flag detection library.
  */
 public class OSDetection {
 

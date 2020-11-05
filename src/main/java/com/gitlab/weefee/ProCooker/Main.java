@@ -6,7 +6,6 @@ import de.jcm.discordgamesdk.Core;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -14,16 +13,16 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * Main class
+ * Main class.
  */
 public class Main {
     /**
-     *
+     * Game Version
      */
     public static final String version = "0.1-SNAPSHOT";
 
     /**
-     *
+     * Main game window
      */
     public static JFrame mainWindow = new JFrame("ProCooker");
 
