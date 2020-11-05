@@ -23,6 +23,11 @@ public class Main {
     public static final String version = "0.1-SNAPSHOT";
 
     /**
+     *
+     */
+    public static JFrame mainWindow = new JFrame("ProCooker");
+
+    /**
      * Main runnable class
      * @param args Starting arguments
      */
@@ -50,7 +55,6 @@ public class Main {
 
         // Set up the Swing window
         JFrame.setDefaultLookAndFeelDecorated(false); // "true" causes issues on certain desktop environments with the CSD buttons suddenly becoming unpressable after resizing
-        JFrame mainWindow = new JFrame("ProCooker");
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainWindow.setSize(1280, 720);
 
@@ -67,6 +71,8 @@ public class Main {
         // Set font sizes
         Font loadingFont = Objects.requireNonNull(mainFont).deriveFont(45f);
 
+        // Load ingredients
+        Database ingredients = new Database(Main.class.getResource("/ingredients/").toExternalForm().substring(5));
 
         // Set up the main menu panel
         JPanel mainMenuPanel = new JPanel();
