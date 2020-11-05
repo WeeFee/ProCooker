@@ -31,7 +31,7 @@ public class CookingGUI extends JPanel {
 		this.game.setGUI(this);
 		
 		// JButton array of every ingredient
-		JButton[] ingredientList = new JButton[16]; 
+		JButton[] ingredientList = new JButton[17]; 
 		ingredientList[0] = new JButton("Cherries");
 		ingredientList[1] = new JButton("Tomatoes");
 		ingredientList[2] = new JButton("Oranges");
@@ -48,6 +48,7 @@ public class CookingGUI extends JPanel {
 		ingredientList[13] = new JButton("Noodles");
 		ingredientList[14] = new JButton("Bread");
 		ingredientList[15] = new JButton("Tofu");
+		ingredientList[16] = new JButton("Grapefruit"); //used as a base for testing
 		
 		//Image section
 		JPanel visual = new JPanel();
