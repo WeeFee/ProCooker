@@ -152,7 +152,7 @@ public class Main {
         CookingGame cookingGame = new CookingGame();
         CookingGUI cookingGUI = new CookingGUI();
         cookingGame.setGUI(cookingGUI.CookingGUI(cookingGame));
-        Controller controller = new Controller(cookingGame, cookingGUI.ingredientList, cookingGUI.reset, cookingGUI.cookNow);
+        Controller controller = new Controller(cookingGame, cookingGUI.ingredientList, cookingGUI.reset, cookingGUI.cookNow, clickSoundClip);
 
         // Menu loop
         while (true) {

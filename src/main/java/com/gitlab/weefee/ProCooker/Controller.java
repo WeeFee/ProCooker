@@ -1,5 +1,6 @@
 package com.gitlab.weefee.ProCooker;
 
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -12,7 +13,7 @@ public class Controller implements ActionListener {
 	private JButton reset;
 	private JButton finishCooking;
 	
-	public Controller(CookingGame game, JButton[] buttons, JButton reset, JButton finishCooking) {
+	public Controller(CookingGame game, JButton[] buttons, JButton reset, JButton finishCooking, Clip sfx) {
 		this.game = game;
 		//this.cookGui = cookGui;
 		this.buttons = buttons;
@@ -26,10 +27,19 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Cherries");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
-		buttons[1].addActionListener(e -> CookingGame.setIngredients("Tomatoes"));
+		buttons[1].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CookingGame.setIngredients("Tomatoes");
+				sfx.setFramePosition(0);
+				sfx.start();
+			}
+		});
 
 		
 		buttons[2].addActionListener(new ActionListener() {
@@ -37,6 +47,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Oranges");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -46,6 +58,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Apples");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -55,6 +69,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Lemons");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -64,6 +80,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Sour Cream");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -73,6 +91,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Wine");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -82,6 +102,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Pickles");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -91,6 +113,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Steak");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -100,6 +124,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Chicken");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -109,6 +135,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Fish");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -118,6 +146,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Crab");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -127,6 +157,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Rice");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -136,6 +168,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Noodles");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -145,6 +179,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Bread");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -154,6 +190,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Tofu");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 		
@@ -163,6 +201,8 @@ public class Controller implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CookingGame.setIngredients("Grapefruit");
+				sfx.setFramePosition(0);
+				sfx.start();
 			}
 		});
 
