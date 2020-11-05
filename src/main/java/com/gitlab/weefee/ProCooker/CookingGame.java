@@ -76,8 +76,5 @@ public class CookingGame extends Object {
         for (boolean[] booleans : dishesJudged) {
             Arrays.fill(booleans, false);
         }
-        for (String[] strings : usedIngredients) {
-            Arrays.fill(strings, "");
-        }
     }
 }

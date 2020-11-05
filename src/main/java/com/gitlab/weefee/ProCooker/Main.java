@@ -149,6 +149,9 @@ public class Main {
             System.out.println("Current weekly challenge: " + currentWeekly);
         }
 
+        CookingGame cookingGame = new CookingGame();
+        cookingGame.setGUI(new CookingGUI(cookingGame));
+
         // Menu loop
         while (true) {
             Discord.core.runCallbacks();
