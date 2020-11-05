@@ -30,3 +30,5 @@ target/classes/
 src/main/resources/music/menu.wav
 
 src/main/resources/fonts/
+
+output.txt
