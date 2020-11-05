@@ -12,9 +12,9 @@ public class CookingGUI extends JPanel {
 	private JTextField dialogue = new JTextField(75);
 	
 	// makes a JLabel. This JLabel contains an ImageIcon, but the ImageIcon also resizes the image in the same line which is why it's quite long
-	private JLabel appBG = new JLabel(new ImageIcon(new ImageIcon("src/res/appetizer.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
-	private JLabel entBG = new JLabel(new ImageIcon(new ImageIcon("src/res/entree.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
-	private JLabel desBG = new JLabel(new ImageIcon(new ImageIcon("src/res/dessert.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
+	private JLabel appBG = new JLabel(new ImageIcon(new ImageIcon("src/kitchensprites/appetizer.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
+	private JLabel entBG = new JLabel(new ImageIcon(new ImageIcon("src/kitchensprites/entree.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
+	private JLabel desBG = new JLabel(new ImageIcon(new ImageIcon("src/kitchensprites/dessert.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
 
 	// makes JButtons to end cooking prematurely or reset the game instantly.
 	public JButton cookNow = new JButton("END COOKING NOW (This Round)"); // button to end cooking earlier
@@ -120,18 +120,15 @@ public class CookingGUI extends JPanel {
 		frame.add(ingredients, BorderLayout.EAST);
 		frame.add(entexit, BorderLayout.SOUTH);
 		frame.setVisible(true);
+		
+		frame.add(new JLabel(new ImageIcon(new ImageIcon("src/kitchensprites/pan.png").getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT)));
 
 		return frame;
 	}
 	
-	private void registerControllers() {
-		
-	}
-	
 	public void update() {
-		
+
 	}
-	
 
 }
 	
