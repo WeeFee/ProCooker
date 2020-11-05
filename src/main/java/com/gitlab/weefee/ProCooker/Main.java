@@ -157,11 +157,6 @@ public class Main {
         // Menu loop
         while (true) {
             Discord.core.runCallbacks();
-            CookingGUI.updates();
-            cookingGame = new CookingGame();
-            cookingGUI = new CookingGUI();
-            cookingGame.setGUI(cookingGUI.CookingGUI(cookingGame));
-            controller = new Controller(cookingGame, cookingGUI.ingredientList, cookingGUI.reset, cookingGUI.cookNow, clickSoundClip);
         }
     }
 }
