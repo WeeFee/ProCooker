@@ -12,10 +12,11 @@ public class CookingGUI extends JPanel {
 	private JTextField dialogue = new JTextField(75);
 	
 	// makes a JLabel. This JLabel contains an ImageIcon, but the ImageIcon also resizes the image in the same line which is why it's quite long
-	private JLabel appBG = new JLabel(new ImageIcon(new ImageIcon("src/main/resources/kitchensprites/appetizer.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
-	private JLabel entBG = new JLabel(new ImageIcon(new ImageIcon("src/kitchensprites/entree.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
-	private JLabel desBG = new JLabel(new ImageIcon(new ImageIcon("src/kitchensprites/dessert.png").getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
-
+	private JLabel appBG = new JLabel(new ImageIcon(getClass().getResource("/kitchensprites/appetizer.png")));
+	private JLabel entBG = new JLabel(new ImageIcon(getClass().getResource("/kitchensprites/main.png")));
+	private JLabel desBG = new JLabel(new ImageIcon(getClass().getResource("/kitchensprites/dessert.png")));
+	private JLabel pan = new JLabel(new ImageIcon(getClass().getResource("/kitchensprites/pan.png")));
+	
 	// makes JButtons to end cooking prematurely or reset the game instantly.
 	public JButton cookNow = new JButton("END COOKING NOW (This Round)"); // button to end cooking earlier
 	public JButton reset = new JButton("RESET GAME"); // button to immediately reset game
@@ -31,7 +32,8 @@ public class CookingGUI extends JPanel {
 		JPanel visual = new JPanel();
 		visual.setLayout(new BorderLayout());
 		visual.add(appBG, BorderLayout.CENTER);
-		visual.setBorder(BorderFactory.createTitledBorder("The cook!"));
+		visual.add(pan, BorderLayout.SOUTH);
+		visual.setBorder(BorderFactory.createTitledBorder("Display of Ingredients Used"));
 		
 		//adding to JButton array of every ingredient
 		ingredientList[0] = new JButton("Cherries");
@@ -52,7 +54,6 @@ public class CookingGUI extends JPanel {
 		ingredientList[15] = new JButton("Tofu");
 		ingredientList[16] = new JButton("Grapefruit"); //used as a base for testing
 		
-
 		
 		//Text Box section
 		JPanel communication = new JPanel();
@@ -115,21 +116,12 @@ public class CookingGUI extends JPanel {
 		JPanel frame = new JPanel();
 
 		frame.setLayout(new BorderLayout());
-		//frame.add(visual, BorderLayout.WEST);
+		frame.add(visual, BorderLayout.WEST);
 		frame.add(communication, BorderLayout.NORTH);
 		frame.add(ingredients, BorderLayout.EAST);
 		frame.add(entexit, BorderLayout.SOUTH);
 		frame.setVisible(true);
 		
-		JLabel pan = new JLabel(new ImageIcon(getClass().getResource("/kitchensprites/pan.png")));
-		JLabel app = new JLabel(new ImageIcon(getClass().getResource("/kitchensprites/pan.png")));
-		
-		JPanel foods = new JPanel();
-		foods.setLayout(new GridLayout(0, 0));
-		foods.add(app, 0, 0);
-		foods.add(pan, 0, 0);
-		
-		frame.add(foods, BorderLayout.WEST);
 
 		return frame;
 	}
