@@ -32,7 +32,7 @@ public class CookingGUI extends JPanel {
 		//super();
 		this.game = game;
 		
-		dialogue.setText("Submit a three course dinner!\nPick 4 ingredients and click submit dish.\nRepeat three times, and the program will close automatically.\nA text file will be outputted with your score and an opponent score, along with whether or not you won.");
+		dialogue.setText("Pick 4 ingredients and click submit dish. Repeat three times, the program will close automatically.\nA text file will be outputted with your score.");
 		
 		//Image section
 		JPanel visual = new JPanel();
