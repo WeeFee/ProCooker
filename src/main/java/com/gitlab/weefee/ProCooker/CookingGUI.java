@@ -3,9 +3,6 @@ package com.gitlab.weefee.ProCooker;
 import java.awt.*;
 import javax.swing.*;
 
-import java.awt.*;
-import javax.swing.*;
-
 public class CookingGUI extends JPanel {
 	
 	//Instance Variables
@@ -89,7 +86,8 @@ public class CookingGUI extends JPanel {
 	}
 			
 	ingredients4.setBorder(BorderFactory.createTitledBorder("Starches"));
-			
+	
+	//create JPanel for the ingredients using GridLayout, so they stack on top of each other.
 	private JPanel ingredients = new JPanel();
 	ingredients.setLayout(new GridLayout(4, 0));
 	ingredients.add(ingredients1);
@@ -105,14 +103,19 @@ public class CookingGUI extends JPanel {
 	entexit.add(reset);
 	entexit.setBorder(BorderFactory.createTitledBorder("Some options which may prove helpful:"));
 			
-		/*frame.setLayout(new BorderLayout());
-		frame.add(visual, BorderLayout.WEST);
-		frame.add(communication, BorderLayout.NORTH);
-		frame.add(ingredients, BorderLayout.EAST);
-		frame.add(entexit, BorderLayout.SOUTH);
-		frame.setSize(860, 540);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);*/
+	/*frame.setLayout(new BorderLayout());
+	frame.add(visual, BorderLayout.WEST);
+	frame.add(communication, BorderLayout.NORTH);
+	frame.add(ingredients, BorderLayout.EAST);
+	frame.add(entexit, BorderLayout.SOUTH);
+	frame.setSize(860, 540);
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.setVisible(true);*/
+	
+	public CookingGUI(CookingGame game) {
+		
+	}
+	
 
 }
 	
