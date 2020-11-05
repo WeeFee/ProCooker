@@ -124,6 +124,14 @@ public class CookingGUI extends JPanel {
 		return frame;
 	}
 	
+	private void registerControllers() {
+		
+	}
+	
+	public void update() {
+		
+	}
+	
 
 }
 	
