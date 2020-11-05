@@ -13,7 +13,7 @@ public class CookingGUI extends JPanel {
 	private CookingGame game;
 	
 	// dialogue of the game's events, judge speech, etc.
-	private JTextField dialogue = new JTextField(75);
+	public static JLabel dialogue = new JLabel();
 	
 	// makes a JLabel. This JLabel contains an ImageIcon, but the ImageIcon also resizes the image in the same line which is why it's quite long
 	private JLabel appBG = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("/kitchensprites/appetizer.png")).getImage().getScaledInstance(350, 350, Image.SCALE_DEFAULT)));
@@ -31,6 +31,8 @@ public class CookingGUI extends JPanel {
 	public JPanel CookingGUI(CookingGame game) {
 		//super();
 		this.game = game;
+		
+		dialogue.setText("Submit a three course dinner!\nPick 4 ingredients and click submit dish.\nRepeat three times, and the program will close automatically.\nA text file will be outputted with your score and an opponent score, along with whether or not you won.");
 		
 		//Image section
 		JPanel visual = new JPanel();
