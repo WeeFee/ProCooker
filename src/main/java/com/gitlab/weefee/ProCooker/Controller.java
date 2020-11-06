@@ -3,7 +3,10 @@ package com.gitlab.weefee.ProCooker;
 import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.Instant;
+import java.util.Random;
 
 /**
  * Controller management for ProCooker.
@@ -215,9 +218,35 @@ public class Controller implements ActionListener {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				if (CookingGame.usedIngredients.size() < 3) {
+					System.out.println("tes");
+					return;
+				}
 				Main.currentRound += 1;
 				if (Main.currentRound == 4) {
+					int playerScore = new Random().nextInt(20) + 80;
+					int computerScore = new Random().nextInt(100);
+
+					String winner = "COMPUTER";
+
+					if (playerScore > computerScore) {
+						winner = "PLAYER";
+					}
+
+					StringBuilder finalFood = new StringBuilder();
+
+					for (String food: CookingGame.usedIngredients) {
+						finalFood.append(food);
+						finalFood.append(" ");
+					}
+					FileWriter userWriter = null;
+					try {
+						userWriter = new FileWriter("./output.txt");
+						userWriter.write(finalFood + "\nRESULTS:\nYOUR SCORE: "+playerScore+"\nCOMPUTER'S SCORE: "+computerScore+"\n"+winner+" WINS");
+						userWriter.close();
+					} catch (IOException ioException) {
+						ioException.printStackTrace();
+					}
 					System.exit(0);
 				}
 			}
