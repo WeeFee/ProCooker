@@ -81,7 +81,7 @@ public class Main {
         Font loadingFont = Objects.requireNonNull(mainFont).deriveFont(45f);
 
         // Load ingredients
-        Database ingredients = new Database(Main.class.getResource("/ingredients/").toExternalForm().substring(5));
+        Database ingredients = new Database("./ingredients/");
 
         // Set up the main menu panel
         JPanel mainMenuPanel = new JPanel();
