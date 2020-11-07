@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * Most game logic for ProCooker is handled here.
  */
-public class CookingGame extends Object {
+public class CookingGame {
     private String gameState = "starting";
 
     private int timeRemaining = this.totalTime;

@@ -123,11 +123,8 @@ public class CookingGUI extends JPanel {
 			visual.add(tomatoes, BorderLayout.CENTER);
 		}
 		
-		else if(random == 16) {
-			visual.add(wine, BorderLayout.CENTER);
-		}
 		else {
-			visual.add(tomatoes, BorderLayout.CENTER);
+			visual.add(wine, BorderLayout.CENTER);
 		}
 		
 		visual.setBorder(BorderFactory.createTitledBorder("Ingredient of the Day:"));
@@ -225,8 +222,7 @@ public class CookingGUI extends JPanel {
 	
 	//bugtesting in relation to updating
 	public static JPanel updates() {
-		JPanel frame = new JPanel();
-		return frame;
+		return new JPanel();
 
 	}
 

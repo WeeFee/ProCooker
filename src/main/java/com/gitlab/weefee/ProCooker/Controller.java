@@ -222,6 +222,8 @@ public class Controller implements ActionListener {
 					System.out.println("tes");
 					return;
 				}
+				// Total dishes cooked in career
+				PlayerData.editSaveData(3, String.valueOf(Integer.parseInt(PlayerData.getSaveData(3)) + 1));
 				Main.currentRound += 1;
 				if (Main.currentRound == 4) {
 					int playerScore = new Random().nextInt(20) + 80;
@@ -231,7 +233,19 @@ public class Controller implements ActionListener {
 
 					if (playerScore > computerScore) {
 						winner = "PLAYER";
+						// Total wins earned in career
+						PlayerData.editSaveData(7, String.valueOf(Integer.parseInt(PlayerData.getSaveData(7)) + 1));
 					}
+
+					// Total games played in career
+					PlayerData.editSaveData(4, String.valueOf(Integer.parseInt(PlayerData.getSaveData(4)) + 1));
+					// Total points earned in career
+					PlayerData.editSaveData(5, String.valueOf(Integer.parseInt(PlayerData.getSaveData(5)) + playerScore));
+					// Total ingredients used
+					PlayerData.editSaveData(6, String.valueOf(Integer.parseInt(PlayerData.getSaveData(6)) + CookingGame.usedIngredients.size()));
+
+					// Save player data
+					PlayerData.savePlayerData();
 
 					StringBuilder finalFood = new StringBuilder();
 
@@ -239,6 +253,7 @@ public class Controller implements ActionListener {
 						finalFood.append(food);
 						finalFood.append(" ");
 					}
+
 					FileWriter userWriter = null;
 					try {
 						userWriter = new FileWriter("./output.txt");

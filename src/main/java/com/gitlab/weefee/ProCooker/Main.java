@@ -7,6 +7,8 @@ import de.jcm.discordgamesdk.Core;
 import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.time.Instant;
@@ -132,6 +134,61 @@ public class Main {
                 "net" + networked,
                 "Connected to ProCooker Services as " + PlayerData.getSaveData(2) + "!");
 
+        // Create main menu
+        JLabel menuName = new JLabel("ProCooker"); // dialogue of the game's events, judge speech, etc.
+
+        JButton start = new JButton("BEGIN"); // button to begin the game
+        JButton exit = new JButton("EXIT"); // button to exit the game
+
+        JPanel actions = new JPanel();
+        actions.setLayout(new FlowLayout());
+        actions.add(start);
+        actions.add(exit);
+        actions.setBorder(BorderFactory.createTitledBorder("Actions"));
+
+        JTextField syncCode= new JTextField(PlayerData.getSaveData(1));
+        JButton syncDown = new JButton("DOWNLOAD CLOUD SAVE");
+        JButton syncUp = new JButton("UPLOAD SAVE TO CLOUD");
+
+        JPanel options = new JPanel();
+        options.setLayout(new FlowLayout());
+        options.add(syncCode);
+        options.add(syncDown);
+        options.add(syncUp);
+        options.setBorder(BorderFactory.createTitledBorder("Cloud Options"));
+
+        //Rules section
+        JPanel rules = new JPanel();
+        rules.setLayout(new GridLayout(25, 0));
+
+        JLabel ruling = new JLabel("You're a chef tasked with creating a 3-round dinner with only 4 ingredients per meal.");
+        JLabel ruling2 = new JLabel("Certain ingredients taste better or worse when paired with others. Find the best combinations in order to take home the crown of best ProCooker,");
+        JLabel ruling3 = new JLabel("as long as you can defeat the great evil known as the computer player.");
+
+        rules.add(ruling);
+        rules.add(ruling2);
+        rules.setBorder(BorderFactory.createTitledBorder("Rules"));
+
+        //Text Box section
+        JPanel title = new JPanel();
+        title.add(menuName);
+        title.setBorder(BorderFactory.createTitledBorder("By Alcide Viau and Allan Yang"));
+
+        JPanel frame = new JPanel();
+
+        frame.setLayout(new BorderLayout());
+        frame.add(title, BorderLayout.NORTH);
+        frame.add(rules, BorderLayout.CENTER);
+
+        JPanel optionsActions = new JPanel();
+        optionsActions.add(actions, BorderLayout.NORTH);
+        optionsActions.add(options, BorderLayout.SOUTH);
+        frame.add(optionsActions, BorderLayout.SOUTH);
+
+        Main.mainWindow.getContentPane().removeAll();
+        Main.mainWindow.add(frame);
+        Main.mainWindow.setVisible(true);
+
         // Set up audio object for music and sound effects
         Audio mainMenuSounds = new Audio();
 
@@ -143,10 +200,6 @@ public class Main {
         // Get the clicking sound ready
         Clip clickSoundClip = mainMenuSounds.getSFX("click");
 
-        // DEBUG: Test save data edit
-        PlayerData.editSaveData(4, "peepee");
-        PlayerData.savePlayerData();
-
         String currentWeekly;
 
         if (networked) {
@@ -156,14 +209,38 @@ public class Main {
             System.out.println("Current weekly challenge: " + currentWeekly);
         }
 
+        start.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CookingGame cookingGame = new CookingGame();
+                CookingGUI cookingGUI = new CookingGUI();
+                cookingGame.setGUI(cookingGUI.CookingGUI(cookingGame));
+                Controller controller = new Controller(cookingGame, cookingGUI.ingredientList, cookingGUI.reset, cookingGUI.cookNow, clickSoundClip);
+            }
+        });
 
-        CookingGame cookingGame = new CookingGame();
-        CookingGUI cookingGUI = new CookingGUI();
-        cookingGame.setGUI(cookingGUI.CookingGUI(cookingGame));
-        Controller controller = new Controller(cookingGame, cookingGUI.ingredientList, cookingGUI.reset, cookingGUI.cookNow, clickSoundClip);
+        exit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
 
+        syncDown.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Networking.downloadCloudData(syncCode.getText());
+            }
+        });
 
-        // Menu loop
+        syncUp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Networking.uploadCloudData(syncCode.getText());
+            }
+        });
+
+        // Callback loop
         while (true) {
             Discord.core.runCallbacks();
         }
